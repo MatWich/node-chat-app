@@ -32,7 +32,7 @@ pipeline {
     	
     	failure {
 
-		   mail bcc: '', attachLog: true, body: 'Przeszlo przez pipelina', cc: '', attachLog: true, from: '', replyTo: '', subject: 'sending mail', to: 'wojow8@gmail.com'
+		   mail bcc: '', attachLog: true, body: 'Przeszlo przez pipelina', cc: '', from: '', replyTo: '', subject: 'sending mail', to: 'wojow8@gmail.com'
     	}
     }
 }

@@ -34,7 +34,7 @@ pipeline {
 		    body: """<p>SUCCESS: Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
 		    recipientProviders: [developers(), requestor()],
 		    to: "wojow8@gmail.com",
-		    from: shadowmurloc63@gmail.com
+		    from: "shadowmurloc63@gmail.com"
 		
     	}
     	
@@ -44,7 +44,7 @@ pipeline {
 		    body: """<p>FAILURE: Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
 		    recipientProviders: [developers(), requestor()],
 		    to: "wojow8@gmail.com",
-		    from: shadowmurloc63@gmail.com
+		    from: "shadowmurloc63@gmail.com"
 		)
     	}
     }

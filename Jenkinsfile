@@ -40,7 +40,7 @@ pipeline {
 		   compressLog: true, 
 		   subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
 		   from: "shadowmurloc63@gmail.com", 
-		   to: 'wojow8@gmail.com'
+		   to: 'wicherskimateusz@gmail.com'
     	}
     }
 }

@@ -23,9 +23,6 @@ pipeline {
     }
     
     post {
-    	always {
-    		echo "This will always show up"
-    	}
     	
     	success {
     		echo 'All test passed'

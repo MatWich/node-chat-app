@@ -9,13 +9,7 @@ pipeline {
 		}
 	}
 	stage('Test') {
-		when {
-			expression {
-				params.executeTests
-				}				
-			}
 		steps {
-
 			echo 'Testing....'
 			sh 'npm run test > testRes.log'
 			
@@ -35,11 +29,11 @@ pipeline {
     	
     	success {
     		echo 'All test passed'
-    		mailext attachlog: true,
-    		body: "${currentBuild.currentResult}": Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-    		receipentProviders: [developers(), requestor()],
-    		to: "wojow8@gmail.com"
-    		subject: "Success tests in pipeline: ${currnetBuild.fullDisplayName}"
+    		emailext (
+		    subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'",
+		    body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
+		    to: "wojow8@gmail.com",
+)
     	}
     	
     	failure {

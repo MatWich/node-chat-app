@@ -34,10 +34,7 @@ pipeline {
     	}
     	
     	failure {
-	   emailext attachLog: true, 
-		   body: "${currentBuild.result}: ${BUILD_URL}", 
-		   subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
-		   to: 'shadowmurloc63@gmail.com'
+		emailext attachLog: true, body: 'bf', recipientProviders: [requestor(), developers()], subject: ' zxvf', to: 'wojow8@gmail.com'
     	}
     }
 }

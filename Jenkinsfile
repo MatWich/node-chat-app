@@ -24,7 +24,7 @@ pipeline {
     
     post {
     	always {
-    		
+    		echo "THis will always show up"
     	}
     	
     	success {

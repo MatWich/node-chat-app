@@ -11,7 +11,7 @@ pipeline {
 	stage('Test') {
 		steps {
 			echo 'Testing....'
-			sh 'npm run test > testRes.log'
+			sh 'npm run test'
 			
 		}
         }
@@ -24,7 +24,7 @@ pipeline {
     
     post {
     	always {
-    		echo "THis will always show up"
+    		echo "This will always show up"
     	}
     	
     	success {
@@ -33,6 +33,7 @@ pipeline {
 		    subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'",
 		    body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
 		    to: "wojow8@gmail.com",
+		    from: shadowmurloc63@gmail.com
 		)
     	}
     	
@@ -41,6 +42,7 @@ pipeline {
 		    subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER}'",
 		    body: """<p>Check console output at <a href="${env.BUILD_URL}">${env.JOB_NAME}</a></p>""",
 		    to: "wojow8@gmail.com",
+		    from: shadowmurloc63@gmail.com
 		)
     	}
     }

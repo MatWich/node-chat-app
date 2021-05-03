@@ -34,7 +34,11 @@ pipeline {
     	}
     	
     	failure {
-		emailext attachLog: true, body: 'bf', recipientProviders: [requestor(), developers()], subject: ' zxvf', to: 'wojow8@gmail.com'
+		emailext attachLog: true,
+			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}", 
+			recipientProviders: [requestor(), developers()], 
+			subject: ' Jenkins notification', 
+			to: 'wojow8@gmail.com'
     	}
     }
 }

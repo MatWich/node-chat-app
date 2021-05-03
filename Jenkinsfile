@@ -36,7 +36,6 @@ pipeline {
     	failure {
 		emailext attachLog: true,
 			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}", 
-			recipientProviders: [requestor(), developers()], 
 			subject: ' Jenkins notification', 
 			to: 'shadowmurloc63@gmail.com'
     	}

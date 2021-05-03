@@ -32,8 +32,7 @@ pipeline {
     	
     	failure {
 
-		   emailext body: "${currentBuild.result}: ${BUILD_URL}", compressLog: true,
-       			subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", from: 'shadowmurloc63@gmail.com',  to: 'wojow8@gmail.com'
+		   mail bcc: '', attachLog: true, body: 'Przeszlo przez pipelina', cc: '', attachLog: true, from: '', replyTo: '', subject: 'sending mail', to: 'wojow8@gmail.com'
     	}
     }
 }

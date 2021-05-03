@@ -36,7 +36,6 @@ pipeline {
     	failure {
 	   emailext attachLog: true, 
 		   body: "${currentBuild.result}: ${BUILD_URL}", 
-		   compressLog: true, 
 		   subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
 		   to: 'wicherskimateusz@gmail.com'
     	}

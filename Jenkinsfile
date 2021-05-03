@@ -29,7 +29,7 @@ pipeline {
 		 body: "${currentBuild.result}: ${BUILD_URL}", 
 		 compressLog: true, 
 		 subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
-		 to: 'wojow8@gmail.com'
+		 to: 'shadowmurloc63@gmail.com'
 		
     	}
     	
@@ -37,7 +37,7 @@ pipeline {
 	   emailext attachLog: true, 
 		   body: "${currentBuild.result}: ${BUILD_URL}", 
 		   subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}", 
-		   to: 'wicherskimateusz@gmail.com'
+		   to: 'shadowmurloc63@gmail.com'
     	}
     }
 }

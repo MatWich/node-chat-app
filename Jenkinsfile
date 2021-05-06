@@ -14,7 +14,7 @@ pipeline {
 	stage('Test') {
 		steps {
 			script {
-				if (currentBuild.result = 'UNSTABLE')
+				if (currentBuild.result == 'UNSTABLE')
 					error('Stopping early due to build stage fail.')
 			}
 			echo 'Testing....'

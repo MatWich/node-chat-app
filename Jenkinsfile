@@ -21,6 +21,14 @@ pipeline {
 			echo 'Testing....'
 			sh 'npm run test'
 		}
+		when {
+			expression {
+			currentBuild.result == UNSTABLE
+			}
+		}
+		steps {
+			error('Stopping early…')
+		}
         }
         stage('Deploy') {
             steps {

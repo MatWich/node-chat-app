@@ -27,7 +27,7 @@ pipeline {
 			}
 		}
 		steps {
-			error('Stopping early…')
+			error('Stopping early due to build stage fail.')
 		}
         }
         stage('Deploy') {

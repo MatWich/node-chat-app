@@ -14,21 +14,18 @@ pipeline {
 	stage('Test') {
 		when {
 			expression {
-				currentBuild.result == null || currentBuild.result == 'SUCCESS'
-				   }
-		     }
-		steps {
-			echo 'Testing....'
-			sh 'npm run test'
-		}
-		when {
-			expression {
 			currentBuild.result == 'UNSTABLE'
 			}
 		}
 		steps {
 			error('Stopping early due to build stage fail.')
 		}
+		
+		steps {
+			echo 'Testing....'
+			sh 'npm run test'
+		}
+
         }
         stage('Deploy') {
             steps {

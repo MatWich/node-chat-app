@@ -12,18 +12,14 @@ pipeline {
 		}
 	}
 	stage('Test') {
-		when {
-			expression {
-			currentBuild.result == 'UNSTABLE'
+		steps {
+			script {
+				if (currentBuild.result = 'UNSTABLE')
+					error('Stopping early due to build stage fail.')
 			}
-		}
-		steps {
-			error('Stopping early due to build stage fail.')
-		}
-		
-		steps {
 			echo 'Testing....'
 			sh 'npm run test'
+			
 		}
 
         }

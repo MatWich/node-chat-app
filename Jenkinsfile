@@ -23,7 +23,7 @@ pipeline {
 		}
 		when {
 			expression {
-			currentBuild.result == UNSTABLE
+			currentBuild.result == 'UNSTABLE'
 			}
 		}
 		steps {

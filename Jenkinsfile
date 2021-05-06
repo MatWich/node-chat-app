@@ -9,7 +9,6 @@ pipeline {
             steps {
 		sh 'npm install'
 		echo 'Building....'
-		throw new Exception()
 		}
 	}
 	stage('Test') {

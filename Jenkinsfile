@@ -9,6 +9,9 @@ pipeline {
             steps {
 		sh 'npm install'
 		echo 'Building....'
+		    script {
+		    	currentBuild.result = 'UNSTABLE'
+		    }
 		}
 	}
 	stage('Test') {

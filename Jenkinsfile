@@ -33,6 +33,12 @@ pipeline {
                 echo 'Deploying....'
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
+		sh """
+			docker build -t my_app .
+		"""
+		sh """
+			docker run --rm my_app
+		"""
 
             }
         }

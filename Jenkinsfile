@@ -36,6 +36,7 @@ pipeline {
 		    agent {
 		    	dockerfile true
 		    }
+		    script {
 		    def image = docker.image("ubuntu")
 		    image.inside {
 		    	sh 'apt-get -y update'
@@ -44,7 +45,7 @@ pipeline {
 		    	sh 'git clone https://github.com/binhxn/node-chat-app.git'
 			sh 'cd node-chat-app'
 		    }
-
+		    }
 
             }
         }

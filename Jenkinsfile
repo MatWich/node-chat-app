@@ -4,6 +4,13 @@ pipeline {
 	    nodejs "node"
     }
 	
+	parameters {
+	string (
+            defaultValue: 'Dockerfile.build',
+            description: 'variable for build dockercontainer',
+            name : 'BUILD')
+	}
+	
     stages {
         stage('Build') {
             steps {
@@ -31,9 +38,8 @@ pipeline {
             steps {
                 echo 'Deploying....'
 		    node("my_node") {
-			checkout scm
-		    	def dockerfile = 'Dockerfile.build'
-			def customImage = docker.build("my_image:${env.BUILD_ID}", "-f ${dockerfile}")
+			checkout scm 
+			def customImage = docker.build("my_image:${env.BUILD_ID}", "-f ${BUILD}")
 				unstash 'ARTEFACT'
 				unstash 'ARTEFACTT'
 		    }

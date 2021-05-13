@@ -15,7 +15,7 @@ pipeline {
 		    }*/
 		 stash includes: 'node_modules/*', name: 'ARTEFACT'
 		 stash includes: 'package-lock.json', name: 'ARTEFACTT'
-		 sh 'sudo apt install docker-ce'
+		 sh 'apt install docker-ce'
 		}
 	}
 	stage('Test') {

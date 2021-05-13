@@ -33,9 +33,6 @@ pipeline {
                 echo 'Deploying....'
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
-		    agent {
-		    	dockerfile true
-		    }
 		    script {
 		    def image = docker.image("ubuntu")
 		    image.inside {

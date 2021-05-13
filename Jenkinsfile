@@ -41,7 +41,6 @@ pipeline {
 			checkout scm 
 			    script {
 			def customImage = docker.build("my_image:${env.BUILD_ID}", "-f ${params.BUILD}")
-				    customImage.push()
 				unstash 'ARTEFACT'
 				unstash 'ARTEFACTT'
 			    }

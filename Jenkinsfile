@@ -32,7 +32,6 @@ pipeline {
                 echo 'Deploying....'
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
-
             }
         }
     }

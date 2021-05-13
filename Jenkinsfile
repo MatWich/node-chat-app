@@ -33,6 +33,9 @@ pipeline {
                 echo 'Deploying....'
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
+		    agent {
+		    	dockerfile true
+		    }
 
 
             }

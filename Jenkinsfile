@@ -31,7 +31,9 @@ pipeline {
             steps {
                 echo 'Deploying....'
 		    node {
-		    	def customImage = docker.build("my_image:$env.BUILD_ID", /Dockerfile)
+			checkout scm
+		    	def dockerfile = 'Dockerfile.build'
+			def customImage = docker.build("my_image:${env.BUILD_ID}", "-f ${dockerfile}")
 				unstash 'ARTEFACT'
 				unstash 'ARTEFACTT'
 		    }

@@ -12,7 +12,7 @@ pipeline {
 		    /*script {
 		    	currentBuild.result = 'UNSTABLE'
 		    }*/
-		 stash includes: 'node_modules', name: 'ARTEFACT'
+		 stash includes: 'node_modules/*', name: 'ARTEFACT'
 		 stash includes: 'package-lock.json', name: 'ARTEFACTT'
 		}
 	}

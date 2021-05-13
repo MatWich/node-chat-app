@@ -13,6 +13,6 @@ RUN git clone https://github.com/binhxn/node-chat-app.git
 
 WORKDIR node-chat-app
 
-COPY * /
+RUN npm install
 
 

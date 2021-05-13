@@ -31,6 +31,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+		unstash 'ARTEFACT'
+		unstash 'ARTEFACTT'
+
             }
         }
     }

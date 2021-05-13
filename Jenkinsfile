@@ -2,7 +2,6 @@ pipeline {
 	agent any
     tools {
 	    nodejs "node"
-	    dockerTool "docker"
     }
 	
     stages {
@@ -33,7 +32,6 @@ pipeline {
                 echo 'Deploying....'
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
-		    agent { dockerflie true }
 
             }
         }

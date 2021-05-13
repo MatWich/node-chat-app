@@ -37,7 +37,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		    node("my_node") {
+		    node("master") {
 			checkout scm 
 			    script {
 			def customImage = docker.build("my_image:${env.BUILD_ID}", "-f ${params.BUILD}")

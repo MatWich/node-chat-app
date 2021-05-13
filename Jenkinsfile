@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		    node {
+		    node("my_node") {
 			checkout scm
 		    	def dockerfile = 'Dockerfile.build'
 			def customImage = docker.build("my_image:${env.BUILD_ID}", "-f ${dockerfile}")

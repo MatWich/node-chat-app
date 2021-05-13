@@ -32,10 +32,8 @@ pipeline {
                 echo 'Deploying....'
 		    node {
 		    	def customImage = docker.build("my_image:$env.BUILD_ID", /Dockerfile)
-			    customImage.inside {
-			    	unstash 'ARTEFACT'
+				unstash 'ARTEFACT'
 				unstash 'ARTEFACTT'
-			    }
 		    }
 
             }

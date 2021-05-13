@@ -31,6 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+		    agent { dockerfile true }
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
             }

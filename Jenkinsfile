@@ -35,7 +35,6 @@ pipeline {
 		unstash 'ARTEFACTT'
 		    script {
 		    def image = docker.image("ubuntu")
-		    sh 'dockerd'
 		    image.inside {
 		    	sh 'apt-get -y update'
 			sh 'apt-get -y install git '

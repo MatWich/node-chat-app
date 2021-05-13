@@ -2,7 +2,6 @@ pipeline {
 	agent any
     tools {
 	    nodejs "node"
-	    dockerTool "docker"
     }
 	
     stages {
@@ -15,7 +14,6 @@ pipeline {
 		    }*/
 		 stash includes: 'node_modules/*', name: 'ARTEFACT'
 		 stash includes: 'package-lock.json', name: 'ARTEFACTT'
-		 sh 'apt install docker-ce'
 		}
 	}
 	stage('Test') {
@@ -35,12 +33,7 @@ pipeline {
                 echo 'Deploying....'
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
-		sh """
-			docker build -t my_app .
-		"""
-		sh """
-			docker run --rm my_app
-		"""
+
 
             }
         }

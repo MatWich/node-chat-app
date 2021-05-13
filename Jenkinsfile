@@ -30,9 +30,14 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		    agent { dockerfile true }
-		unstash 'ARTEFACT'
-		unstash 'ARTEFACTT'
+		    node {
+		    	def customImage = docker.build("my_image:$env.BUILD_ID", ./Dockerfile)
+			    customImage.inside {
+			    	unstash 'ARTEFACT'
+				unstash 'ARTEFACTT'
+			    }
+		    }
+
             }
         }
     }

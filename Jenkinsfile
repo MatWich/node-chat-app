@@ -36,7 +36,10 @@ pipeline {
         }
         stage('Deploy') {
 		agent {
-			docker 'node:latest'
+			docker {
+				image 'node:latest'
+				args '-p 8989:8989'
+			}
 		}
             steps {
                 echo 'Deploying....'

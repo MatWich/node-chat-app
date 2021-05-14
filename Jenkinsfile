@@ -39,17 +39,13 @@ pipeline {
 		}
         }
         stage('Deploy') {
+		agent {
+			docker 'node:latest'
+		}
             steps {
                 echo 'Deploying....'
-		    node("master") {
-			checkout scm 
-			    script {
-			def customImage = docker.build("my_image:${env.BUILD_ID}", "-f ${params.BUILD}")
-				unstash 'ARTEFACT'
-				unstash 'ARTEFACTT'
-			    }
-		    }
-
+		unstash 'ARTEFACT'
+		unstash 'ARTEFACTT'
             }
         }
     }

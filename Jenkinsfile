@@ -1,5 +1,5 @@
 pipeline {
-	}
+	
     tools {
 	    nodejs "node"
     }

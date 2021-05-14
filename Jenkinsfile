@@ -51,7 +51,6 @@ pipeline {
     }
     
     post {
-    	
     	success {
 	 emailext attachLog: true, 
 		 body: "${currentBuild.result}: ${BUILD_URL}", 
@@ -60,7 +59,6 @@ pipeline {
 		 to: 'shadowmurloc63@gmail.com'
 		
     	}
-    	
     	failure {
 		emailext attachLog: true,
 			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}", 

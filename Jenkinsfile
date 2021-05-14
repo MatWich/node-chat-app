@@ -1,8 +1,4 @@
 pipeline {
-	agent {
-		dockerfile {
-			filename "Dockerfile.build"
-		}
 	}
     tools {
 	    nodejs "node"

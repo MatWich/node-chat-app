@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent none
     tools {
 	    nodejs "node"
     }
@@ -13,6 +13,7 @@ pipeline {
 	
     stages {
         stage('Build') {
+		agent any
             steps {
 		sh 'npm install'
 		echo 'Building....'
@@ -24,6 +25,7 @@ pipeline {
 		}
 	}
 	stage('Test') {
+		agent any
 		steps {
 			script {
 				if (currentBuild.result == 'UNSTABLE')

@@ -38,9 +38,7 @@ pipeline {
         }
         stage('Deploy') {
 		agent {
-			docker {
 			label 'slave'
-			}
 		}
             steps {
                 echo 'Deploying....'

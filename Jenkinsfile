@@ -45,6 +45,7 @@ pipeline {
 		unstash 'ARTEFACT'
 		unstash 'ARTEFACTT'
 		sh 'ls'
+		sh 'docker build -t node-chat-deploy -f Dockerfile.build .'
             }
         }
     }
